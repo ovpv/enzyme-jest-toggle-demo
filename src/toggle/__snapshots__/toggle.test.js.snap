@@ -1,3 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Toggle Component Renders Correctly 1`] = `ShallowWrapper {}`;
+exports[`Toggle Component Renders Correctly 1`] = `
+Array [
+  <div
+    className="button-container"
+  >
+    <button
+      className="toggle-button"
+      onClick={[Function]}
+    >
+      Show
+    </button>
+  </div>,
+  <div
+    className="toggle-effect-area"
+  >
+    <h2
+      id="heading"
+    >
+      Show Hidden Content
+    </h2>
+  </div>,
+]
+`;

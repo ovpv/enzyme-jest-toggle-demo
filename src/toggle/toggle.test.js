@@ -2,13 +2,14 @@ import { shallow, configure, mount } from 'enzyme';
 import React from 'react';
 import Toggle from './toggle';
 import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
 
 configure({ adapter: new Adapter() });
 
 describe('Toggle Component', () => {
   it('Renders Correctly', () => {
-    const wrapper = shallow(<Toggle />);
-    expect(wrapper).toMatchSnapshot();
+    const tree = renderer.create(<Toggle />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
   it('Should have a button to toggle', () => {
     const wrapper = shallow(<Toggle />);
