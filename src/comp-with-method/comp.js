@@ -7,14 +7,20 @@ export default class MyComp extends Component {
   saveLayout(e) {
     this._onClickSaveLayout(e.target.value);
   }
+
+  handleName(name) {
+    console.log(name);
+  }
+
   _onClickSaveLayout(name) {
     name = name.replace(/\s{2,}/g, ' ').trim();
     let nameExists = name.length;
     if (nameExists) {
-      //compute this block if name exists
+      //compute this block if nameexists
+      this.handleName(name);
       return true;
     } else {
-      //compute this block if nameexists
+      //compute this block if not nameexists
       return false;
     }
   }

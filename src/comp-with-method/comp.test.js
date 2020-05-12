@@ -19,4 +19,12 @@ describe('Component with save method', () => {
     const val = instance._onClickSaveLayout(name);
     expect(val).toBe(false);
   });
+  it('should call handleName method if valid name is passed', () => {
+    const wrapper = mount(<MyComp />);
+    const instance = wrapper.instance();
+    instance.handleName = jest.fn();
+    const name = '   Vishnu Pasad   ';
+    instance._onClickSaveLayout(name);
+    expect(instance.handleName).toHaveBeenCalledTimes(1);
+  });
 });
