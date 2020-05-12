@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component with save method should render properly 1`] = `
+<div>
+  <input
+    type="text"
+  />
+  <button
+    onClick={[Function]}
+  >
+    Save
+  </button>
+</div>
+`;

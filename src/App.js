@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Toggle from './toggle/toggle';
+import MyComp from './comp-with-method/comp';
 
 function App() {
   return (
     <div className="App">
-      <Toggle />
+      <MyComp />
     </div>
   );
 }
