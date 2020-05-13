@@ -3,7 +3,7 @@ import React from 'react';
 import { shallow, configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
-import MyComp from './comp';
+import MyComp, { onClickSaveLayout } from './comp';
 
 configure({ adapter: new Adapter() });
 
@@ -13,18 +13,16 @@ describe('Component with save method', () => {
     expect(tree).toMatchSnapshot();
   });
   it('Method should not save if name passed is empty white space', () => {
-    const wrapper = mount(<MyComp />);
-    const instance = wrapper.instance();
-    const name = '  ';
-    const val = instance._onClickSaveLayout(name);
-    expect(val).toBe(false);
+    const handleName = jest.fn((name) => {
+      console.log(name);
+    });
+    expect(onClickSaveLayout('  ')).toBe(false);
+    expect(onClickSaveLayout(' Vishnu prasad ', handleName)).toBe(true);
   });
   it('should call handleName method if valid name is passed', () => {
-    const wrapper = mount(<MyComp />);
-    const instance = wrapper.instance();
-    instance.handleName = jest.fn();
     const name = '   Vishnu Pasad   ';
-    instance._onClickSaveLayout(name);
-    expect(instance.handleName).toHaveBeenCalledTimes(1);
+    const handleName = jest.fn();
+    onClickSaveLayout(name, handleName);
+    expect(handleName).toHaveBeenCalled();
   });
 });
